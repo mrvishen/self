@@ -13,50 +13,47 @@
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --board:#10261f; --panel:#173329; --line:#2c4d41; --ink:#eef1e8; --muted:#9bb2a5; --gold:#e0bb5e; --gold-ink:#10261f;
+  color-scheme:dark;
+  --board:#0c0a13; --panel:#15111f; --line:#2b2340; --ink:#f4f1fb; --muted:#a99fc2;
+  --purple:#8b5cf6; --purple-soft:#b79cff; --gold:#ff9a3d; --gold-ink:#1a0f06;
   --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
 }
-@media (prefers-color-scheme:light){
-  :root:not([data-theme="dark"]){--board:#f1f4ee; --panel:#e4eae0; --line:#c3d0c5; --ink:#14291f; --muted:#4d6556; --gold:#8a6a12; --gold-ink:#f1f4ee}
-}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--board);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+body{margin:0;background:radial-gradient(60rem 32rem at 85% -5%,rgba(139,92,246,.22),transparent 60%),radial-gradient(40rem 26rem at -5% 30%,rgba(255,154,61,.10),transparent 60%),var(--board);background-attachment:fixed;color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
 a{color:inherit}
 a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
 header.top{padding:1.25rem 0}
 header.top nav{display:flex;gap:1.5rem;flex-wrap:wrap}
 header.top a{text-decoration:none;color:var(--muted);font-weight:500}
-header.top a:hover{color:var(--ink)}
+header.top a:hover{color:var(--purple-soft)}
 
-.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
-h1{font:800 clamp(2.6rem,6.5vw,4.6rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 1.25rem}
+.hero{padding:4rem 0 5rem;max-width:44rem}
+h1{font:800 clamp(2.6rem,6.5vw,4.6rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 1.25rem;background:linear-gradient(100deg,#fff 15%,var(--purple-soft) 60%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
 .tag{font:500 clamp(1.2rem,2.4vw,1.55rem)/1.4 var(--head);margin:0 0 1rem;max-width:30ch}
 .sub{color:var(--muted);margin:0 0 2rem;max-width:44ch}
 .btns{display:flex;gap:.75rem;flex-wrap:wrap}
-.btn{display:inline-block;padding:.7rem 1.2rem;border:2px solid var(--gold);border-radius:4px;text-decoration:none;font-weight:500}
-.btn.main{background:var(--gold);color:var(--gold-ink)}
-.btn:hover{filter:brightness(1.08)}
+.btn{display:inline-block;padding:.7rem 1.2rem;border:2px solid var(--purple);border-radius:999px;text-decoration:none;font-weight:500;transition:transform .15s,background .15s}
+.btn.main{background:var(--purple);color:#fff;box-shadow:0 8px 28px rgba(139,92,246,.35)}
+.btn:hover{transform:translateY(-2px);background:rgba(139,92,246,.18)}
+.btn.main:hover{background:#9b72ff}
+.socials{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.soc{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem .9rem .45rem .7rem;border:1px solid var(--line);background:var(--panel);border-radius:999px;text-decoration:none;font-size:.95rem;font-weight:500;transition:border-color .15s,color .15s,transform .15s}
+.soc svg{width:1.1rem;height:1.1rem;fill:currentColor}
+.soc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
 
-.mesh{justify-self:center;text-align:left}
-.grid{display:grid;grid-template-columns:repeat(3,4.5rem);gap:1.1rem;padding:1.5rem;background:var(--panel);border:1px solid var(--line);border-radius:6px;width:max-content}
-.node{width:4.5rem;height:4.5rem;border-radius:50%;border:2px solid var(--line);background:var(--board);cursor:pointer;padding:0;position:relative;transition:background .25s,border-color .25s,box-shadow .25s}
-.node::after{content:"";position:absolute;inset:50% auto auto 50%;width:.7rem;height:.7rem;margin:-.35rem;border-radius:50%;background:var(--muted);transition:background .25s}
-.node.standby{border-color:var(--gold);border-style:dashed}
-.node.standby::after{background:var(--gold)}
-.node.alert{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 .5rem color-mix(in srgb,var(--gold) 25%,transparent)}
-.node.alert::after{background:var(--gold-ink)}
-.cap{color:var(--muted);font-size:.9rem;margin:.9rem 0 0;max-width:19rem}
 
 section{padding:3.5rem 0;border-top:1px solid var(--line)}
 h2{font:700 clamp(1.7rem,3.5vw,2.3rem)/1.15 var(--head);letter-spacing:-.02em;margin:0 0 2rem}
+h2::after{content:"";display:block;width:3.2rem;height:4px;margin-top:.7rem;border-radius:2px;background:linear-gradient(90deg,var(--purple),var(--gold))}
 .about p{max-width:60ch;margin:0 0 1rem}
 
-.row{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.6rem 0;border-top:1px solid var(--line)}
-.row:first-of-type{border-top:0;padding-top:0}
-.when{color:var(--muted);font-size:.95rem;padding-top:.3rem}
+.row{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.6rem 1.25rem;margin:0 -1.25rem;border-top:1px solid var(--line);border-radius:12px;transition:background .2s}
+.row:first-of-type{border-top:0}
+.row:hover{background:rgba(139,92,246,.09)}
+.when{color:var(--purple-soft);font-size:.95rem;padding-top:.3rem;font-weight:500}
 h3{font:700 1.35rem/1.25 var(--head);margin:0 0 .35rem}
 .stack{color:var(--gold);font-weight:500;font-size:.95rem;margin:0 0 .7rem}
 .row ul{margin:0;padding-left:1.1rem;max-width:62ch}
@@ -66,25 +63,24 @@ h3{font:700 1.35rem/1.25 var(--head);margin:0 0 .35rem}
 dl.skills{margin:0}
 dl.skills div{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem;padding:1rem 0;border-top:1px solid var(--line)}
 dl.skills div:first-child{border-top:0;padding-top:0}
-dt{font-weight:500;color:var(--muted)}
+dt{font-weight:500;color:var(--purple-soft)}
 dd{margin:0}
 
 .wins{list-style:none;margin:0;padding:0}
 .wins li{padding:.9rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:9rem 1fr;gap:1.5rem}
 .wins li:first-child{border-top:0;padding-top:0}
-.wins span{color:var(--muted);font-size:.95rem}
+.wins span{color:var(--purple-soft);font-size:.95rem;font-weight:500}
 
+.contact a.mail:hover{color:var(--gold)}
 .contact a.mail{font:700 clamp(1.3rem,3.6vw,2.1rem)/1.2 var(--head);word-break:break-all}
-.links{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.25rem}
+.links{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.5rem}
 footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
 
 @media (max-width:760px){
-  .hero{grid-template-columns:1fr;gap:2.5rem;padding-top:2rem}
-  .mesh{justify-self:start}
+  .row{margin:0 -.75rem;padding:1.3rem .75rem}
+  .hero{padding:2rem 0 3rem}
   .row,.wins li{grid-template-columns:1fr;gap:.25rem}
   dl.skills div{grid-template-columns:1fr;gap:.2rem}
-  .grid{grid-template-columns:repeat(3,3.6rem);gap:.9rem}
-  .node{width:3.6rem;height:3.6rem}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
@@ -93,7 +89,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
 <div class="wrap">
   <header class="top">
     <nav aria-label="Sections">
-      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#wins">Achievements</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#wins">Achievements</a><a href="#contact">Contact</a>
     </nav>
   </header>
 
@@ -102,16 +98,12 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       <div>
         <h1>Kartikay Singh Vishen</h1>
         <p class="tag">I build hardware that senses, decides and talks to other hardware.</p>
-        <p class="sub">Electronics and Communication Engineering student, also studying BS Data Science at IIT Madras. Based in Lucknow, India.</p>
+        <p class="sub">Electronics and Communication Engineering student, also studying BS Data Science at IIT Madras. Co-founder of Kshitij Labs. Based in Lucknow, India.</p>
         <div class="btns">
           <a class="btn main" href="#projects">See my projects</a>
           <a class="btn" href="Kartikay_Singh_Vishen_Resume.pdf">Download resume</a>
-          <a class="btn" href="https://github.com/mrvishen">GitHub</a>
-        </div>
-      </div>
-      <div class="mesh">
-        <div class="grid" id="grid" role="group" aria-label="Demo of a 3 by 3 sensor mesh"></div>
-        <p class="cap">Select a node. It raises an alert and its neighbors go on standby, the same idea behind my INDRA project.</p>
+          </div>
+        <div class="socials"><a class="soc" href="https://www.linkedin.com/in/mrvishen" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4V21H3V9.75zm6.5 0h3.8v1.54h.06c.53-1 1.82-2.06 3.75-2.06 4 0 4.74 2.63 4.74 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.32-1.96 2.69V21h-4V9.75z"/></svg>LinkedIn</a><a class="soc" href="https://github.com/mrvishen" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg>GitHub</a><a class="soc" href="https://leetcode.com/u/mrvishen/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.48 2.1a1.4 1.4 0 00-1 .43L4.3 10.9a4.3 4.3 0 000 6.05l3.1 3.1a4.3 4.3 0 006.04 0l2.2-2.2a1.2 1.2 0 10-1.7-1.7l-2.2 2.2a1.9 1.9 0 01-2.64 0l-3.1-3.1a1.9 1.9 0 010-2.65l8.2-8.4a1.2 1.2 0 00-.8-2.04zM10.9 12.2a1.2 1.2 0 000 2.4h9.4a1.2 1.2 0 000-2.4h-9.4z"/></svg>LeetCode</a><a class="soc" href="https://www.instagram.com/ksinghvishen/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.9 3.9 2.37 7.15 2.27 8.42 2.21 8.8 2.2 12 2.2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.25a3.25 3.25 0 110-6.5 3.25 3.25 0 010 6.5zm5.2-9.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>Instagram</a><a class="soc" href="https://www.chutiyaap.com" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM4.1 11a8 8 0 015-6.5C8.3 6 7.8 8.2 7.7 11H4.1zm0 2h3.6c.1 2.8.6 5 1.4 6.5a8 8 0 01-5-6.5zM12 20c-.9-1-2-3.4-2.3-7h4.6c-.3 3.6-1.4 6-2.3 7zm-2.3-9c.3-3.6 1.4-6 2.3-7 .9 1 2 3.4 2.3 7H9.7zm5.2 8.5c.8-1.5 1.3-3.7 1.4-6.5h3.6a8 8 0 01-5 6.5zM16.3 11c-.1-2.8-.6-5-1.4-6.5a8 8 0 015 6.5h-3.6z"/></svg>Website</a></div>
       </div>
     </div>
 
@@ -120,6 +112,20 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       <p>Most of what I do is build small devices that read the world, make a decision and pass it on. I work with Arduino, ESP32 and Raspberry Pi, simulate circuits in PSpice, lay out boards in KiCad and write firmware in C and C++. I use Python for data work.</p>
       <p>I also design interfaces in Figma, because a device nobody can use is only half finished. I co-founded Kshitij Labs, a freelancing and media agency.</p>
       <p>My long-term goal is standardized, interoperable hardware that makes devices easy to connect, the way USB did for peripherals. Outside engineering I am a Shotokan karate black belt, a national-level player and a certified judge with the Karate India Organisation. I ride and I read a lot.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <article class="row">
+        <div class="when">Co-founder</div>
+        <div>
+          <h3>Kshitij Labs</h3>
+          <p class="stack">Freelancing and media agency</p>
+          <ul>
+            <li>Co-founded and run a freelancing and media agency, handling design and client work.</li>
+          </ul>
+        </div>
+      </article>
     </section>
 
     <section id="projects">
@@ -222,48 +228,13 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       <h2>Contact</h2>
       <p>I am looking for hardware projects where I can build, test and learn. Write to me at</p>
       <a class="mail" href="mailto:vishenkartikaysingh@gmail.com">vishenkartikaysingh@gmail.com</a>
-      <div class="links">
-        <a href="https://www.linkedin.com/in/mrvishen">LinkedIn</a>
-        <a href="https://github.com/mrvishen">GitHub</a>
-      </div>
+      <div class="links"><a class="soc" href="https://www.linkedin.com/in/mrvishen" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4V21H3V9.75zm6.5 0h3.8v1.54h.06c.53-1 1.82-2.06 3.75-2.06 4 0 4.74 2.63 4.74 6.05V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.32-1.96 2.69V21h-4V9.75z"/></svg>LinkedIn</a><a class="soc" href="https://github.com/mrvishen" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 00-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 015.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0012 .5z"/></svg>GitHub</a><a class="soc" href="https://leetcode.com/u/mrvishen/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.48 2.1a1.4 1.4 0 00-1 .43L4.3 10.9a4.3 4.3 0 000 6.05l3.1 3.1a4.3 4.3 0 006.04 0l2.2-2.2a1.2 1.2 0 10-1.7-1.7l-2.2 2.2a1.9 1.9 0 01-2.64 0l-3.1-3.1a1.9 1.9 0 010-2.65l8.2-8.4a1.2 1.2 0 00-.8-2.04zM10.9 12.2a1.2 1.2 0 000 2.4h9.4a1.2 1.2 0 000-2.4h-9.4z"/></svg>LeetCode</a><a class="soc" href="https://www.instagram.com/ksinghvishen/" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85C2.38 3.9 3.9 2.37 7.15 2.27 8.42 2.21 8.8 2.2 12 2.2zM12 7a5 5 0 100 10 5 5 0 000-10zm0 8.25a3.25 3.25 0 110-6.5 3.25 3.25 0 010 6.5zm5.2-9.4a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>Instagram</a><a class="soc" href="https://www.chutiyaap.com" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM4.1 11a8 8 0 015-6.5C8.3 6 7.8 8.2 7.7 11H4.1zm0 2h3.6c.1 2.8.6 5 1.4 6.5a8 8 0 01-5-6.5zM12 20c-.9-1-2-3.4-2.3-7h4.6c-.3 3.6-1.4 6-2.3 7zm-2.3-9c.3-3.6 1.4-6 2.3-7 .9 1 2 3.4 2.3 7H9.7zm5.2 8.5c.8-1.5 1.3-3.7 1.4-6.5h3.6a8 8 0 01-5 6.5zM16.3 11c-.1-2.8-.6-5-1.4-6.5a8 8 0 015 6.5h-3.6z"/></svg>Website</a></div>
     </section>
   </main>
 
   <footer>© <span id="yr">2026</span> Kartikay Singh Vishen</footer>
 </div>
 
-<script>
-(function(){
-  var grid=document.getElementById('grid'),nodes=[],timer,busy=false;
-  for(var i=0;i<9;i++){
-    var b=document.createElement('button');
-    b.className='node';b.type='button';b.setAttribute('aria-label','Sensor node '+(i+1));
-    (function(n){b.addEventListener('click',function(){trigger(n,true)})})(i);
-    grid.appendChild(b);nodes.push(b);
-  }
-  function neighbors(i){
-    var r=Math.floor(i/3),c=i%3,out=[];
-    for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){
-      if(!dr&&!dc)continue;
-      var rr=r+dr,cc=c+dc;
-      if(rr>=0&&rr<3&&cc>=0&&cc<3)out.push(rr*3+cc);
-    }
-    return out;
-  }
-  function reset(){nodes.forEach(function(n){n.className='node'})}
-  function trigger(i,manual){
-    if(busy)return;busy=true;clearTimeout(timer);reset();
-    nodes[i].classList.add('alert');
-    setTimeout(function(){neighbors(i).forEach(function(j){nodes[j].classList.add('standby')})},350);
-    setTimeout(function(){reset();busy=false;if(!manual||true)schedule()},3200);
-  }
-  function schedule(){
-    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-    timer=setTimeout(function(){trigger(Math.floor(Math.random()*9),false)},1800);
-  }
-  schedule();
-  document.getElementById('yr').textContent=new Date().getFullYear();
-})();
-</script>
+<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
 </body>
 </html>
