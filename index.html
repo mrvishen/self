@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartikay Singh Vishen | Embedded Systems and IoT</title>
+<meta name="description" content="Kartikay Singh Vishen is an electronics and communication engineering student building embedded and IoT hardware. Projects, skills and contact.">
+<meta property="og:title" content="Kartikay Singh Vishen | Embedded Systems and IoT">
+<meta property="og:description" content="Electronics engineering student building embedded and IoT hardware. BS Data Science at IIT Madras. Karate black belt.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#10261f; --panel:#173329; --line:#2c4d41; --ink:#eef1e8; --muted:#9bb2a5; --gold:#e0bb5e; --gold-ink:#10261f;
+  --head:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){--board:#f1f4ee; --panel:#e4eae0; --line:#c3d0c5; --ink:#14291f; --muted:#4d6556; --gold:#8a6a12; --gold-ink:#f1f4ee}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--board);color:var(--ink);font:400 1.0625rem/1.65 var(--body)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.5rem}
+header.top{padding:1.25rem 0}
+header.top nav{display:flex;gap:1.5rem;flex-wrap:wrap}
+header.top a{text-decoration:none;color:var(--muted);font-weight:500}
+header.top a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:center;padding:3.5rem 0 4.5rem}
+h1{font:800 clamp(2.6rem,6.5vw,4.6rem)/1 var(--head);letter-spacing:-.03em;margin:0 0 1.25rem}
+.tag{font:500 clamp(1.2rem,2.4vw,1.55rem)/1.4 var(--head);margin:0 0 1rem;max-width:30ch}
+.sub{color:var(--muted);margin:0 0 2rem;max-width:44ch}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.7rem 1.2rem;border:2px solid var(--gold);border-radius:4px;text-decoration:none;font-weight:500}
+.btn.main{background:var(--gold);color:var(--gold-ink)}
+.btn:hover{filter:brightness(1.08)}
+
+.mesh{justify-self:center;text-align:left}
+.grid{display:grid;grid-template-columns:repeat(3,4.5rem);gap:1.1rem;padding:1.5rem;background:var(--panel);border:1px solid var(--line);border-radius:6px;width:max-content}
+.node{width:4.5rem;height:4.5rem;border-radius:50%;border:2px solid var(--line);background:var(--board);cursor:pointer;padding:0;position:relative;transition:background .25s,border-color .25s,box-shadow .25s}
+.node::after{content:"";position:absolute;inset:50% auto auto 50%;width:.7rem;height:.7rem;margin:-.35rem;border-radius:50%;background:var(--muted);transition:background .25s}
+.node.standby{border-color:var(--gold);border-style:dashed}
+.node.standby::after{background:var(--gold)}
+.node.alert{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 .5rem color-mix(in srgb,var(--gold) 25%,transparent)}
+.node.alert::after{background:var(--gold-ink)}
+.cap{color:var(--muted);font-size:.9rem;margin:.9rem 0 0;max-width:19rem}
+
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(1.7rem,3.5vw,2.3rem)/1.15 var(--head);letter-spacing:-.02em;margin:0 0 2rem}
+.about p{max-width:60ch;margin:0 0 1rem}
+
+.row{display:grid;grid-template-columns:9rem 1fr;gap:1.5rem;padding:1.6rem 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0;padding-top:0}
+.when{color:var(--muted);font-size:.95rem;padding-top:.3rem}
+h3{font:700 1.35rem/1.25 var(--head);margin:0 0 .35rem}
+.stack{color:var(--gold);font-weight:500;font-size:.95rem;margin:0 0 .7rem}
+.row ul{margin:0;padding-left:1.1rem;max-width:62ch}
+.row li{margin-bottom:.4rem}
+.row li::marker{color:var(--gold)}
+
+dl.skills{margin:0}
+dl.skills div{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem;padding:1rem 0;border-top:1px solid var(--line)}
+dl.skills div:first-child{border-top:0;padding-top:0}
+dt{font-weight:500;color:var(--muted)}
+dd{margin:0}
+
+.wins{list-style:none;margin:0;padding:0}
+.wins li{padding:.9rem 0;border-top:1px solid var(--line);display:grid;grid-template-columns:9rem 1fr;gap:1.5rem}
+.wins li:first-child{border-top:0;padding-top:0}
+.wins span{color:var(--muted);font-size:.95rem}
+
+.contact a.mail{font:700 clamp(1.3rem,3.6vw,2.1rem)/1.2 var(--head);word-break:break-all}
+.links{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.25rem}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;gap:2.5rem;padding-top:2rem}
+  .mesh{justify-self:start}
+  .row,.wins li{grid-template-columns:1fr;gap:.25rem}
+  dl.skills div{grid-template-columns:1fr;gap:.2rem}
+  .grid{grid-template-columns:repeat(3,3.6rem);gap:.9rem}
+  .node{width:3.6rem;height:3.6rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#wins">Achievements</a><a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Kartikay Singh Vishen</h1>
+        <p class="tag">I build hardware that senses, decides and talks to other hardware.</p>
+        <p class="sub">Electronics and Communication Engineering student, also studying BS Data Science at IIT Madras. Based in Lucknow, India.</p>
+        <div class="btns">
+          <a class="btn main" href="#projects">See my projects</a>
+          <a class="btn" href="Kartikay_Singh_Vishen_Resume.pdf">Download resume</a>
+          <a class="btn" href="https://github.com/mrvishen">GitHub</a>
+        </div>
+      </div>
+      <div class="mesh">
+        <div class="grid" id="grid" role="group" aria-label="Demo of a 3 by 3 sensor mesh"></div>
+        <p class="cap">Select a node. It raises an alert and its neighbors go on standby, the same idea behind my INDRA project.</p>
+      </div>
+    </div>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>Most of what I do is build small devices that read the world, make a decision and pass it on. I work with Arduino, ESP32 and Raspberry Pi, simulate circuits in PSpice, lay out boards in KiCad and write firmware in C and C++. I use Python for data work.</p>
+      <p>I also design interfaces in Figma, because a device nobody can use is only half finished. I co-founded Kshitij Labs, a freelancing and media agency.</p>
+      <p>My long-term goal is standardized, interoperable hardware that makes devices easy to connect, the way USB did for peripherals. Outside engineering I am a Shotokan karate black belt, a national-level player and a certified judge with the Karate India Organisation. I ride and I read a lot.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="row">
+        <div class="when">Aug 2026</div>
+        <div>
+          <h3>INDRA: Intelligent Network for Disaster Risk Alerts</h3>
+          <p class="stack">ESP32, Arduino Uno, DHT11, UART, HTML and JS</p>
+          <ul>
+            <li>A decentralized sensor mesh for early disaster alerts. A triggered node puts its neighbors on standby, and a dual fail-check layer verifies readings before an alert is raised.</li>
+            <li>Hardware prototype in progress, with an ESP32 hub and Arduino Uno nodes reading DHT11 sensors over UART links.</li>
+            <li>Built an interactive dashboard with live node states, a composite risk graph and an event log. Prepared for Smart India Hackathon 2026.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="when">2025 to 2026</div>
+        <div>
+          <h3>SEO and web development</h3>
+          <p class="stack">HTML, CSS, SEO</p>
+          <ul>
+            <li>Designed, built and maintain a website on a personal domain.</li>
+            <li>Applied on-page SEO practices to improve search visibility.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="when">Sep 2025</div>
+        <div>
+          <h3>Smart water sprinkler system</h3>
+          <p class="stack">Arduino, sensors, embedded systems</p>
+          <ul>
+            <li>An automatic controller that switches watering on and off from live sensor readings.</li>
+            <li>Uses hysteresis control to stop rapid on and off cycling near the threshold, and debounce logic to filter noisy input.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="when">Dec 2024</div>
+        <div>
+          <h3>Automatic parking system</h3>
+          <p class="stack">Arduino, ultrasonic sensor, IR sensor, LCD</p>
+          <ul>
+            <li>Detects vehicles with ultrasonic and IR sensors and shows parking status on an LCD in real time.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="when">2024</div>
+        <div>
+          <h3>School attendance system</h3>
+          <p class="stack">Arduino, embedded systems</p>
+          <ul>
+            <li>Records student attendance automatically and cuts down manual errors.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="row">
+        <div class="when">Jan 2024</div>
+        <div>
+          <h3>Mini-mall database management system</h3>
+          <p class="stack">SQL, DBMS</p>
+          <ul>
+            <li>Combines inventory management, billing and stock tracking for a mini-mall.</li>
+            <li>Automated reorder logic restocks items when stock falls below set levels.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>C, C++, Python, HTML, CSS</dd></div>
+        <div><dt>Boards</dt><dd>Arduino Uno, ESP32 (all versions), Raspberry Pi, Raspberry Pi Pico</dd></div>
+        <div><dt>Tools</dt><dd>Arduino IDE, VS Code, PSpice, KiCad, Figma, MATLAB, Git and GitHub</dd></div>
+        <div><dt>Also</dt><dd>IoT, PCB design, circuit simulation, UI/UX design, data analysis, web development</dd></div>
+        <div><dt>Coursework</dt><dd>Basic Electronics, Microprocessors and Microcontrollers</dd></div>
+      </dl>
+    </section>
+
+    <section id="wins">
+      <h2>Achievements</h2>
+      <ul class="wins">
+        <li><span>Oct 2026</span><div>First place, MSIT Startup Arena, Smart India Hackathon 2026</div></li>
+        <li><span>Sep 2026</span><div>Cleared the university round of Smart India Hackathon 2026 with a 4th rank</div></li>
+        <li><span>Karate</span><div>Shotokan black belt, national-level player, certified judge with the Karate India Organisation</div></li>
+        <li><span>Training</span><div>NPTEL course on Arduino Uno (certificate awaited)</div></li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+      <p>I am looking for hardware projects where I can build, test and learn. Write to me at</p>
+      <a class="mail" href="mailto:vishenkartikaysingh@gmail.com">vishenkartikaysingh@gmail.com</a>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/mrvishen">LinkedIn</a>
+        <a href="https://github.com/mrvishen">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="yr">2026</span> Kartikay Singh Vishen</footer>
+</div>
+
+<script>
+(function(){
+  var grid=document.getElementById('grid'),nodes=[],timer,busy=false;
+  for(var i=0;i<9;i++){
+    var b=document.createElement('button');
+    b.className='node';b.type='button';b.setAttribute('aria-label','Sensor node '+(i+1));
+    (function(n){b.addEventListener('click',function(){trigger(n,true)})})(i);
+    grid.appendChild(b);nodes.push(b);
+  }
+  function neighbors(i){
+    var r=Math.floor(i/3),c=i%3,out=[];
+    for(var dr=-1;dr<=1;dr++)for(var dc=-1;dc<=1;dc++){
+      if(!dr&&!dc)continue;
+      var rr=r+dr,cc=c+dc;
+      if(rr>=0&&rr<3&&cc>=0&&cc<3)out.push(rr*3+cc);
+    }
+    return out;
+  }
+  function reset(){nodes.forEach(function(n){n.className='node'})}
+  function trigger(i,manual){
+    if(busy)return;busy=true;clearTimeout(timer);reset();
+    nodes[i].classList.add('alert');
+    setTimeout(function(){neighbors(i).forEach(function(j){nodes[j].classList.add('standby')})},350);
+    setTimeout(function(){reset();busy=false;if(!manual||true)schedule()},3200);
+  }
+  function schedule(){
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    timer=setTimeout(function(){trigger(Math.floor(Math.random()*9),false)},1800);
+  }
+  schedule();
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
